@@ -27,6 +27,7 @@
 (defun make-sum (a1 a2)
   (cond ((=number? a1 0) a2)
         ((=number? a2 0) a1)
+        ((and (numberp a1) (numberp a2)) (+ a1 a2))
         (t (list '+ a1 a2))))
 
 (defun product? (e)
@@ -44,6 +45,7 @@
              (=number? a2 0)) 0)
         ((=number? a1 1) a2)
         ((=number? a2 1) a1)
+        ((and (numberp a1) (numberp a2)) (* a1 a2))
         (t (list '* a1 a2))))
 
 (defun deriv (exp var)
